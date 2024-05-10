@@ -20,7 +20,7 @@ function ListaServicos(props: Props) {
     const servicos: Servico[] = servico
 
     useEffect(() => {
-        fetch('http://localhost:32831/servico/servicos', {
+        fetch('http://localhost:32832/servicos', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -36,16 +36,19 @@ function ListaServicos(props: Props) {
     
     return (
         <>
-            <h5 className="center-align">Lista de Serviços: </h5><br/>
-            <div className="collection">
+            <h5 className='center-align'>Lista de Serviços: </h5><br/>
+            <div className='collection'>
                 {servicos.map(s => {
                     return (
-                        <Servico key={s.id}
-                            id={s.id}
-                            nome={s.nome}
-                            valor={s.valor}
-                            quantidade={s.quantidade}
-                        />
+                        <div key={s.id}>
+                            <p>{s.nome}</p>
+                            <Servico key={s.id}
+                                id={s.id}
+                                nome={s.nome}
+                                valor={s.valor}
+                                quantidade={s.quantidade}
+                            />
+                        </div>
                     )
                 })}
             </div>

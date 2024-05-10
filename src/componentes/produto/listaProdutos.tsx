@@ -20,7 +20,7 @@ function ListaProdutos(props: props) {
     const produtos: Produto[] = produto
 
     useEffect(() => {
-        fetch('http://localhost:32831/produto/produtos', {
+        fetch('http://localhost:32832/produtos', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -40,12 +40,15 @@ function ListaProdutos(props: props) {
             <div className='collection'>
                 {produtos.map(p => {
                     return (
-                        <Produto key={p.id}
-                            id={p.id}
-                            nome={p.nome}
-                            valor={p.valor}
-                            quantidade={p.quantidade}
-                        />
+                        <div key={p.id}>
+                            <p>{p.nome}</p>
+                            <Produto key={p.id}
+                                id={p.id}
+                                nome={p.nome}
+                                valor={p.valor}
+                                quantidade={p.quantidade}
+                            />
+                        </div>
                     )
                 })}
             </div>

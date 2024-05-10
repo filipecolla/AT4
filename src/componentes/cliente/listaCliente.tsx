@@ -30,14 +30,13 @@ type Cliente = {
     }[]
 };
 
-function ListaCliente(props: props) {
+function ListaCliente(_props: props) {
     const [cliente, setCliente] = useState([])
     const clientes: Cliente[] = cliente
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    let tema = props.tema
 
     useEffect(() => {
-        fetch('http://localhost:32831/cliente/clientes', {
+        fetch('http://localhost:32832/clientes', {
             method: 'GET',
             headers: {
                 'Accept' : 'application/json',
@@ -53,29 +52,33 @@ function ListaCliente(props: props) {
 
     return (
         <div className="container-fluid">
-            <h3 className="list-title">Clientes</h3>
-            <div className="list-group">
+            <h5 className='center-align'>Lista de Produtos: </h5><br/>
+            <div className='collection'>
                 {clientes.map(c => {
                     return (
-                        <Cliente key={c.id}
-                            id={c.id}
-                            nome={c.nome}
-                            nomeSocial={c.nomeSocial}
-                            email={c.email}
-                            rua={c.endereco.rua}
-                            numero={c.endereco.numero}
-                            bairro={c.endereco.bairro}
-                            cidade={c.endereco.cidade}
-                            estado={c.endereco.estado}
-                            cep={c.endereco.codigoPostal}
-                            info={c.endereco.informacoesAdicionais}
-                            telefones={c.telefones}
+                        <div key={c.id}>
+                            <p>{c.nome}</p>
+                            <Cliente
+                                id={c.id}
+                                nome={c.nome}
+                                nomeSocial={c.nomeSocial}
+                                email={c.email}
+                                rua={c.endereco.rua}
+                                numero={c.endereco.numero}
+                                bairro={c.endereco.bairro}
+                                cidade={c.endereco.cidade}
+                                estado={c.endereco.estado}
+                                cep={c.endereco.codigoPostal}
+                                info={c.endereco.informacoesAdicionais}
+                                telefones={c.telefones}
                             />
+                        </div>
                     )
                 })}
             </div>
         </div>
     )
+
 }
 
 export default ListaCliente;

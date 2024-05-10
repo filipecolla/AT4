@@ -40,12 +40,12 @@ public class ControleServico {
         }
     }
 
-    @GetMapping("/servicos")
-    public ResponseEntity<List<Servico>> obterServicos() {
-        List<Servico> servicos = repositorio.findAll();
-        hateoas.adicionarLink(servicos);
-        return new ResponseEntity<List<Servico>>(servicos, HttpStatus.FOUND);
-    }
+	@GetMapping("/servicos")
+	public ResponseEntity<List<Servico>> obterServicos() {
+		List<Servico> servicos = repositorio.findAll();
+		hateoas.adicionarLink(servicos);
+		return new ResponseEntity<List<Servico>>(servicos, HttpStatus.FOUND);
+	}
 
     @PutMapping("/servico/atualizar")
     public ResponseEntity<?> atualizarServico(@RequestBody Servico atualizacao) {
@@ -74,11 +74,10 @@ public class ControleServico {
     public ResponseEntity<?> excluirServico(@RequestBody Servico exclusao) {
         Servico servico = repositorio.getById(exclusao.getId());
         if (servico != null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } else {
             repositorio.delete(servico);
             return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-    
 }

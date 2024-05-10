@@ -41,7 +41,7 @@ function Cliente(props: props) {
             cancelButtonText: 'Cancelar'
           }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete('http://localhost:32831/cliente/excluir', {data: {id: props.id}})
+                axios.delete('http://localhost:32832/cliente/excluir', {data: {id: props.id}})
                 .then(() => {
                     Swal.fire({
                         title: "Cliente excluído com sucesso!",

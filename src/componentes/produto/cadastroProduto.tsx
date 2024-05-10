@@ -14,7 +14,7 @@ function FormularioCadastroProduto(props: props) {
 
     const cadastrar = (e: { preventDefault: () => void }) => {
         e.preventDefault()
-        fetch('http://localhost:32831/produto/cadastrar', {
+        fetch('http://localhost:32832/produto/cadastrar', {
             method: 'POST',
             body: JSON.stringify({
                 nome: nome,

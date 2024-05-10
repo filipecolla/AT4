@@ -1,11 +1,11 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { BsPencil } from 'react-icons/bs';
-import './cliente.css'
 import { IMaskInput } from "react-imask";
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import './cliente.css';
 
 type props = {
     id: number,
@@ -58,13 +58,13 @@ function EditarCliente(props: props) {
         setTelefones(tels)
     }
 
-    function changeSecao(valor: string){
+    function changeSecao(valor: string) {
         setSecaoForm(valor)
     }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        axios.put('http://localhost:32831/cliente/atualizar', {
+        axios.put('http://localhost:32832/cliente/atualizar', {
             id: props.id,
             nome: nome,
             nomeSocial: nomeSocial,
@@ -88,9 +88,9 @@ function EditarCliente(props: props) {
         })
     }
 
-    return(
+    return (
         <>
-            <BsPencil onClick={handleShow} className="edit"/>
+            <BsPencil onClick={handleShow} className="edit" />
 
             <Modal
                 size='lg'
@@ -98,7 +98,7 @@ function EditarCliente(props: props) {
                 onHide={handleClose}
             >
                 <Modal.Header closeButton>
-                <Modal.Title>Editar cliente</Modal.Title>
+                    <Modal.Title>Editar cliente</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className='form-cliente container-fluid'>
@@ -109,7 +109,7 @@ function EditarCliente(props: props) {
                                 <div onClick={() => changeSecao('Telefones')}>Telefones</div>
                             </div>
                             <h4>{secaoForm}</h4>
-                            {secaoForm === 'Informações Básicas' && 
+                            {secaoForm === 'Informações Básicas' &&
                                 <>
                                     <div>
                                         <label htmlFor="nome">Nome</label>
@@ -123,9 +123,13 @@ function EditarCliente(props: props) {
                                         <label htmlFor="email">Email</label>
                                         <input className="form-control" id="email" type="email" defaultValue={props.email} onChange={(e) => handleChange(e, setEmail)}></input>
                                     </div>
+                                    <div className='teste'>
+                                        <Button variant="secondary" onClick={handleClose}>Fechar</Button>
+                                        <Button variant="primary" type='submit'>Editar</Button>
+                                    </div>
                                 </>
                             }
-                            {secaoForm === 'Endereço' && 
+                            {secaoForm === 'Endereço' &&
                                 <>
                                     <div>
                                         <label htmlFor="nome">Rua</label>
@@ -155,32 +159,34 @@ function EditarCliente(props: props) {
                                         <label htmlFor="email">Informações adicionais</label>
                                         <textarea className="form-control" id="email" defaultValue={props.info} onChange={(e) => handleChange(e, setInfo)}></textarea>
                                     </div>
+                                    <div className='teste'>
+                                        <Button variant="secondary" onClick={handleClose}>Fechar</Button>
+                                        <Button variant="primary" type='submit'>Editar</Button>
+                                    </div>
                                 </>
                             }
                             {secaoForm === 'Telefones' &&
                                 <>
-                                    {props.telefones.map((t: any, i:any) => {
-                                        return <div key={i+1}>
-                                                    <label htmlFor={`telefone-${i+1}`}>Telefone {i+1}</label>
-                                                    <IMaskInput
-                                                    className="form-control" id={`telefone-${i+1}`} type="text" defaultValue={t.ddd + t.numero}
-                                                    mask='(00) 000000000'
-                                                    onChange={(e) => handleTelefoneChange(e, i)}
-                                                    />
-                                                </div>
+                                    {props.telefones.map((t: any, i: any) => {
+                                        return <div key={i + 1}>
+                                            <label htmlFor={`telefone-${i + 1}`}>Telefone {i + 1}</label>
+                                            <IMaskInput
+                                                className="form-control" id={`telefone-${i + 1}`} type="text" defaultValue={t.ddd + t.numero}
+                                                mask='(00) 000000000'
+                                                onChange={(e) => handleTelefoneChange(e, i)}
+                                            />
+                                        </div>
                                     })}
+                                    <div className='teste'>
+                                        <Button variant="secondary" onClick={handleClose}>Fechar</Button>
+                                        <Button variant="primary" type='submit'>Editar</Button>
+                                    </div>
                                 </>
                             }
                         </form>
                     </div>
-                
+
                 </Modal.Body>
-                <Modal.Footer>
-                    <div className='teste'>
-                        <Button variant="secondary" onClick={handleClose}>Fechar</Button>
-                        <button className='btn btn-primary' type='button'>Editar</button>
-                    </div>
-                </Modal.Footer><br/><br/>
             </Modal>
         </>
     )

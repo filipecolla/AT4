@@ -16,19 +16,19 @@ public class HateoasProduto implements Hateoas<Produto> {
     public void adicionarLink(List<Produto> lista) {
         for (Produto produto : lista) {
             long id = produto.getId();
-            Link linkProposito = WebMvcLinkBuilder
+            Link linkProprio = WebMvcLinkBuilder
                     .linkTo(WebMvcLinkBuilder.methodOn(ControleProduto.class).obterProduto(id)).withSelfRel();  
-            produto.add(linkProposito);       
+            produto.add(linkProprio);       
         }
     }
 
     @Override
     public void adicionarLink(Produto objeto) {
-        Link linkPropio = WebMvcLinkBuilder
+        Link linkProprio = WebMvcLinkBuilder
                 .linkTo(WebMvcLinkBuilder
                         .methodOn(ControleProduto.class)
                         .obterProdutos())
                 .withRel("produtos");
-        objeto.add(linkPropio);
+        objeto.add(linkProprio);
     }
 }

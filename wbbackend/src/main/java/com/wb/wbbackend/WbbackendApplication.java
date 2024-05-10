@@ -57,20 +57,20 @@ public class WbbackendApplication {
 			repositorioServico.save(servico);
 
 			Servico servico2 = new Servico();
-			servico.setNome("Massagem");
-			servico.setValor("300");
+			servico2.setNome("Massagem");
+			servico2.setValor("300");
 
 			repositorioServico.save(servico2);
 
 			Servico servico3 = new Servico();
-			servico.setNome("Limpeza de pele");
-			servico.setValor("140");
+			servico3.setNome("Limpeza de pele");
+			servico3.setValor("140");
 
 			repositorioServico.save(servico3);
 
 			Servico servico4 = new Servico();
-			servico.setNome("Cortar Cabelo");
-			servico.setValor("55");
+			servico4.setNome("Cortar Cabelo");
+			servico4.setValor("55");
 
 			repositorioServico.save(servico4);
 
@@ -81,20 +81,20 @@ public class WbbackendApplication {
 			repositorioProduto.save(produto);
 
 			Produto produto2 = new Produto();
-			produto.setNome("Cotonete");
-			produto.setValor("10");
+			produto2.setNome("Cotonete");
+			produto2.setValor("10");
 
 			repositorioProduto.save(produto2);
 
 			Produto produto3 = new Produto();
-			produto.setNome("Algodao");
-			produto.setValor("5");
+			produto3.setNome("Algodao");
+			produto3.setValor("5");
 
 			repositorioProduto.save(produto3);
 
 			Produto produto4 = new Produto();
-			produto.setNome("Shampoo");
-			produto.setValor("30");
+			produto4.setNome("Shampoo");
+			produto4.setValor("30");
 
 			repositorioProduto.save(produto4);
 

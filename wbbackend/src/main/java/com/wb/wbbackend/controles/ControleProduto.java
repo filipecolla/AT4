@@ -40,7 +40,7 @@ public class ControleProduto {
         }
     }
 
-    @GetMapping("/Produtos")
+    @GetMapping("/produtos")
     public ResponseEntity<List<Produto>> obterProdutos() {
         List<Produto> produtos =  repositorio.findAll();
         hateoas.adicionarLink(produtos);
