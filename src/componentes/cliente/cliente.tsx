@@ -9,7 +9,6 @@ import axios from "axios";
 type props = {
     id: number,
     nome: string,
-    nomeSocial: string,
     email: string,
     rua: string,
     numero: string,
@@ -59,13 +58,12 @@ function Cliente(props: props) {
         <div className="list-group-item list-group-item-action">
             <div className="item-listado">
                 <div className="conteudo">
-                    <span>{props.nomeSocial}</span>
+                    <span>{props.nome}</span>
                 </div>
                 <div className="acoes">
                     <EditarCliente
                         id={props.id}
                         nome={props.nome}
-                        nomeSocial={props.nomeSocial}
                         email={props.email}
                         rua={props.rua}
                         numero={props.numero}
@@ -86,7 +84,6 @@ function Cliente(props: props) {
                         <h3>Informações básicas</h3>
                         <div className="detalhes-item">
                             <div><b>Nome Completo:  </b>{props.nome}</div>
-                            <div><b>Nome Social:  </b>{props.nomeSocial}</div>
                             <div><b>Email:  </b>{props.email}</div>
 
                         </div>                            

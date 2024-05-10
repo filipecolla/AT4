@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Swal from 'sweetalert2'
 
 type Props = {
     tema: string
@@ -46,7 +47,15 @@ function FormularioCadastroCliente({ tema }: Props) {
                     'Content-Type': 'application/json'
                 },
             })
-            window.location.reload();
+            .then(() => {
+                Swal.fire({
+                    title: "Cliente atualizado com sucesso!",
+                    icon: "success",
+                    confirmButtonColor: 'green'
+                }).then(() => {
+                    window.location.reload()
+                })
+            })
         } catch (error) {
             console.error('Erro ao cadastrar cliente', error);
         }

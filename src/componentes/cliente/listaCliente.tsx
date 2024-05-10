@@ -10,7 +10,6 @@ type props = {
 type Cliente = {
     id: number;
     nome: string;
-    nomeSocial: string;
     email: string;
     endereco: {
             id: number;
@@ -57,11 +56,9 @@ function ListaCliente(_props: props) {
                 {clientes.map(c => {
                     return (
                         <div key={c.id}>
-                            <p>{c.nome}</p>
                             <Cliente
                                 id={c.id}
                                 nome={c.nome}
-                                nomeSocial={c.nomeSocial}
                                 email={c.email}
                                 rua={c.endereco.rua}
                                 numero={c.endereco.numero}

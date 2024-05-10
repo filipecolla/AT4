@@ -10,7 +10,6 @@ import './cliente.css';
 type props = {
     id: number,
     nome: string,
-    nomeSocial: string,
     email: string,
     rua: string,
     numero: string,
@@ -31,7 +30,6 @@ function EditarCliente(props: props) {
     const [show, setShow] = useState(false)
     const [secaoForm, setSecaoForm] = useState('Informações Básicas')
     const [nome, setNome] = useState(props.nome)
-    const [nomeSocial, setNomeSocial] = useState(props.nomeSocial)
     const [email, setEmail] = useState(props.email)
     const [rua, setRua] = useState(props.rua)
     const [numero, setNumero] = useState(props.numero)
@@ -67,7 +65,6 @@ function EditarCliente(props: props) {
         axios.put('http://localhost:32832/cliente/atualizar', {
             id: props.id,
             nome: nome,
-            nomeSocial: nomeSocial,
             email: email,
             rua: rua,
             numero: numero,
@@ -114,10 +111,6 @@ function EditarCliente(props: props) {
                                     <div>
                                         <label htmlFor="nome">Nome</label>
                                         <input className="form-control" id="nome" type="text" defaultValue={props.nome} onChange={(e) => handleChange(e, setNome)}></input>
-                                    </div>
-                                    <div>
-                                        <label htmlFor="nome">Nome Social</label>
-                                        <input className="form-control" id="nomeSocial" type="text" defaultValue={props.nomeSocial} onChange={(e) => handleChange(e, setNomeSocial)}></input>
                                     </div>
                                     <div>
                                         <label htmlFor="email">Email</label>
