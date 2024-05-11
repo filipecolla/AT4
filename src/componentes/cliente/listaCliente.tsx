@@ -51,7 +51,7 @@ function ListaCliente(_props: props) {
 
     return (
         <div className="container-fluid">
-            <h5 className='center-align'>Lista de Produtos: </h5><br/>
+            <h5 className='center-align'>Lista de Clientes: </h5><br/>
             <div className='collection'>
                 {clientes.map(c => {
                     return (

@@ -41,7 +41,6 @@ function ListaProdutos(props: props) {
                 {produtos.map(p => {
                     return (
                         <div key={p.id}>
-                            <p>{p.nome}</p>
                             <Produto key={p.id}
                                 id={p.id}
                                 nome={p.nome}
